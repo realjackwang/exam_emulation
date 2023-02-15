@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename="css/clock.css") }}">
+        {% endblock %}
+        <title>公务员录用模拟考试</title>
+
+    {% endblock %}
+</head>
+
+<body>
+<!-- Your page content -->
+{% block content %}
+    <p></p>
+
+    <h1 align="center"> 公务员录用模拟考试 </h1>
+
+    <div class="clock">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+        <div class="center"></div>
+        {#        <div class="time"></div>#}
+        <ul>
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+            <li><span>7</span></li>
+            <li><span>8</span></li>
+            <li><span>9</span></li>
+            <li><span>10</span></li>
+            <li><span>11</span></li>
+            <li><span>12</span></li>
+        </ul>
+    </div>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+
+    <div class="position-absolute bottom-20 end-50">
+        <button type="button" class="btn btn-secondary" id="start_exam">开始考试</button>
+    </div>
+
+
+
+{#    <h4 align="center">行政职业能力测验</h4>#}
+{#    <h5 align="center">9:00 - 11:00</h5>#}
+
+    <div id="dataid" d="{{ data }}" style="display:none"></div>
+
+    <audio src="/static/audio/exam_start.mp3" class="audio" id="exam_start"></audio>
+    <audio src="/static/audio/exam_before_end.mp3" class="audio" id="exam_before_end"></audio>
+    <audio src="/static/audio/exam_end.mp3" class="audio" id="exam_end"></audio>
+
+{% endblock %}
+
+{% block scripts %}
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }}
+    <script src="/static/js/clock.js"></script>
+{% endblock %}
+
+
+</body>
+
+
+</html>
